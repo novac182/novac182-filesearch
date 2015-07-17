@@ -1,7 +1,7 @@
 filesearch (ls | grep)
 ======================
 
-Utility for file searching, that's used to search a directory for files that match a given string
+Utility for file searching - Search a directory for files that match a given string.
 
 Install
 -------
@@ -12,4 +12,12 @@ Usage
 
    * `filesearch matchString`
 
- 
+Core Code
+---------
+
+```js
+var exec = require('child_process').exec;
+var child = exec('ls | grep ' + searchPattern, function(err, stdout, stderr){
+	console.log(stdout);
+});
+```
